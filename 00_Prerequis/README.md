@@ -9,16 +9,26 @@ Avant de commencer l'installation de KIND, nous allons installer kubectl.
 
 ```shell
 {
-    curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.22.4/bin/linux/amd64/kubectl
+    export KUBECTL_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl
     chmod +x ./kubectl
     sudo mv ./kubectl /usr/local/bin/kubectl
     kubectl version --client
 }
 ```
 
+Ou via le gestionnaire de paquets de votre choix :
+Homebrew :
+```shell
+{
+    brew install kubectl
+    kubectl version --client
+}
+```
+
 Résultat :
 ```
-Client Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.4", ...
+Client Version: version.Info{Major:"1", Minor:"23", GitVersion:"v1.23.4", ...
 ```
 
 Pour plus de confort, vous pouvez ajouter l'autocomplétion à votre shell, ainsi que l'alias `k` pour `kubectl`.
