@@ -8,3 +8,12 @@
 kubectl create namespace argo-rollouts
 kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
 brew install argoproj/tap/kubectl-argo-rollouts
+
+## Prerequis
+    Docker
+    Faire les installations de `00_Prerequis`
+
+## Accéder au Dashboard Argo rollout 
+```shell
+    kubectl argo rollouts dashboard
+```
