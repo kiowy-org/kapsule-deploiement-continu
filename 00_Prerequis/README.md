@@ -77,3 +77,38 @@ Utilisez la commande suivante afin d'installer l'addons metrics-server dans votr
 ```shell
 kubectl apply -f metrics-server.yaml
 ```
+
+## 3. Installation de Argo-rollout
+
+### 1. Installation du controller dans le cluster
+```shell
+    kubectl create namespace argo-rollouts
+    kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
+```
+
+### 2. Installation du plugin kubectl
+
+```shell
+{
+    curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-darwin-amd64
+    chmod +x ./kubectl-argo-rollouts-darwin-amd64
+    sudo mv ./kubectl-argo-rollouts-darwin-amd64 /usr/local/bin/kubectl-argo-rollouts
+}
+```
+
+Homebrew :
+```shell
+    brew install argoproj/tap/kubectl-argo-rollouts
+```
+
+Resultat :
+```shell
+    ❯ kubectl argo rollouts version
+    kubectl-argo-rollouts: v1.1.0+ff3471a
+        BuildDate: 2021-10-11T20:20:08Z
+        GitCommit: ff3471a2fc3ccb90dbb1f370d7e399ff3064043a
+        GitTreeState: clean
+        GoVersion: go1.16.3
+        Compiler: gc
+        Platform: darwin/amd64
+```
